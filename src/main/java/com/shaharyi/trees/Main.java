@@ -1,10 +1,4 @@
-package com.shaharyi.trees;
-
 import java.util.*;
-
-import com.shaharyi.node.Queue;
-
-
 class Main {
 
 	public static void main(String[] args) {
@@ -23,7 +17,7 @@ class Main {
 		String s = levelToString(t);
 
 		System.out.println(s);
-
+        System.out.println(treeSum(t));
 		// Test your methods here:
 		// inOrder(tree);
 		// printEven(tree);
@@ -37,6 +31,11 @@ class Main {
 		StringTokenizer tokenizer = new StringTokenizer(s);
 		return fromString(tokenizer);
 	}
+    public static int treeSum(BinNode<Integer> t) {
+        if (t == null)
+            return 0;
+        return t.getValue() + treeSum(t.getLeft()) + treeSum(t.getRight());
+    }
 
 	/* Construct from in-order with brackets */
 	public static BinNode<Integer> fromString(StringTokenizer tokenizer) {
